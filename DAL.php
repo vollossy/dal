@@ -22,18 +22,6 @@ abstract class DAL {
     public $pk = 'id';
 
     /**
-     * @var string dsn для подключения к бд
-     */
-    protected $dsn;
-    /**
-     * @var string Имя пользователя для подключения к бд
-     */
-    protected $username;
-    /**
-     * @var string Пароль для подключения к бд
-     */
-    protected $password;
-    /**
      * @var \PDO соединение с базой данных
      */
     protected $db;
@@ -41,13 +29,10 @@ abstract class DAL {
     /** @todo: нужно бы добавить репозиторий для конфигурации */
     public function __construct()
     {
-        $this->dsn = ConfigRegistry::getInstance()->getDsn();
-        $this->username = ConfigRegistry::getInstance()->getUsername();
-        $this->password = ConfigRegistry::getInstance()->getPassword();
         $this->db = new \PDO(
-            $this->dsn,
-            $this->username,
-            $this->password,
+            ConfigRegistry::getInstance()->getDsn(),
+            ConfigRegistry::getInstance()->getUsername(),
+            ConfigRegistry::getInstance()->getPassword(),
             array(\PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\'')
         );
     }
