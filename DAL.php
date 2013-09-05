@@ -39,7 +39,7 @@ abstract class DAL {
     protected $db;
 
     /** @todo: нужно бы добавить репозиторий для конфигурации */
-    public function __construct($dsn, $username, $password)
+    public function __construct()
     {
         $this->dsn = ConfigRegistry::getInstance()->getDsn();
         $this->username = ConfigRegistry::getInstance()->getUsername();
