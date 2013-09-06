@@ -69,11 +69,15 @@ abstract class DAL {
     public function mapObject($record)
     {
         $resultReflection = new \ReflectionClass(get_class($this));
+        /**
+         * @var DAL $result
+         */
         $result = $resultReflection->newInstance();
         foreach ($record as $key => $value) {
             if (!is_numeric($key))
                 $result->$key = $value;
         }
+        $result->isNew = false;
         return $result;
     }
 
