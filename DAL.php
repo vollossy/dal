@@ -159,7 +159,7 @@ abstract class DAL {
      */
     private function getColumns()
     {
-        $stmt = $this->db->prepare("SHOW COLUMNS FROM :table", array(':table' => $this->tableName()));
+        $stmt = $this->db->prepare("SHOW COLUMNS FROM {$this->tableName()}");
         $result = array();
         if ($stmt->execute()) {
             $fetchedColumns = $stmt->fetchAll();
