@@ -21,10 +21,4 @@ interface Notifiable{
      */
     public function __construct(DAL $dalInstance, \PDOStatement $stmt);
 
-    /**
-     *
-     * Функция, вызываемая при каждом обращении к коллекции. Ее нужно переопределеить для реализации ленивой загрузки
-     * @return mixed
-     */
-    function notifyAccess();
 }
