@@ -51,7 +51,7 @@ abstract class DAL {
         }
         $stmt = $this->db->prepare("SELECT * FROM {$this->tableName()} {$criteriaStr}");
 
-        $this->produceCollection($stmt);
+        return $this->produceCollection($stmt);
     }
 
     /**
