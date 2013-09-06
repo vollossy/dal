@@ -11,5 +11,9 @@
     "autoload":{
         "psr-0": { "vollossy\\DAL\\": "" }
     },
-    "target-dir": "vollossy/DAL/"
+    "target-dir": "vollossy/DAL/",
+    "require": {
+        "phpunit/phpunit": "@dev",
+        "phpunit/phpunit-mock-objects" : "@dev"
+    }
 }

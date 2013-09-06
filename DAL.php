@@ -51,9 +51,15 @@ abstract class DAL {
         }
         $stmt = $this->db->prepare("SELECT * FROM {$this->tableName()} {$criteriaStr}");
 
-        $collectionClassName = $this->collectionClass();
-        return new $collectionClassName($this, $stmt);
+        $this->produceCollection($stmt);
     }
+
+    /**
+     * Создает коллекцию элементов, реализующих класс Collection
+     * @param \PDOStatement $stmt
+     * @return Collection
+     */
+    abstract protected function produceCollection(\PDOStatement $stmt);
 
     /**
      * Преобразует данные, полученны от PDO в экземпляр класса
