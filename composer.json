@@ -12,7 +12,7 @@
         "psr-0": { "vollossy\\DAL\\": "" }
     },
     "target-dir": "vollossy/DAL/",
-    "require": {
+    "require-dev": {
         "phpunit/phpunit": "@dev",
         "phpunit/phpunit-mock-objects" : "@dev"
     }
