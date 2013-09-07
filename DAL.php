@@ -112,7 +112,6 @@ abstract class DAL {
             $stmt = $this->db->prepare($query);
         } else {
             $query = "UPDATE {$this->tableName()} SET {$values}";
-            $query .= $this->prepareSaveValuesString();
             $pk = $this->pk;
             $query .= "WHERE {$this->pk} = {$this->$pk}";
             $stmt = $this->db->prepare($query);
